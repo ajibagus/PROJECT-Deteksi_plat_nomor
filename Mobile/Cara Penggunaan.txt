@@ -1,0 +1,11 @@
+Cara Pengggunaan aplikasi android numplate:
+1. import terlebih dahulu database yang ada pada folder WEB ke phpmyadmin.
+2. copy api numplate pada folder xampp/htdocs.
+3. cek kembali coding api untuk memastikan koneksi sudah benar terhubung ke database.
+4. testing menggunakan postman, apakah bisa login sesuai dengan data yang sudah ada dan cek apakah datanya sudah bisa terbaca, jika sudah bisa lanjut ke tahap berikutnya, jika belum bisa kembali ke langkah nomer 3.
+5. buka project numplate pada android studio, ubah base url pada class retrofit. Sesuaikan ip base url pada class retrofit dengan ipv4 koneksi anda.
+6. Untuk menjalankan fitur chatbot, anda harus jalankan terlebih dahulu web chatbotnya pada folder chatbot
+7. Untuk menjalankan web chatbot anda harus membuat virtual environtment python terlebih dahulu, kemudian install semua library yang ada pada file req.txt
+8. setelah membuat virtual environtment dan menginstal semua library anda harus mengaktifkan terlebih dahulu virtual environtment yang telah anda buat tersebut 9. Ubah host pada file app.py dengan ipv4 anda
+10. kemudian jalankan file app.py dengan cara mengetikkan "app.py" pada terminal cmd visual studio code
+11. kembali pada aplikasi Numplate, fitur chatbot sudah bisa digunakan.

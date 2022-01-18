@@ -1,0 +1,7 @@
+Cara Pengggunaan website Numplate:
+1.Import terlebih dahulu database yang ada di folder Database, tepatnya di file big_project.sql
+(membuat database bernama big_project, dan mengimport file yang sudah tersedia0.
+2.Untuk menjalankan website, harus membuat virtual environtment python terlebih dahulu, kemudian install semua library yang ada pada file req-ela.txt
+3.Cek library dengan mengetikkan “ pip list “ pada Command Prompt di Visual Studio Code
+4.Jalankan flask di Command Prompt, masuk ke environtment
+5.Flask run

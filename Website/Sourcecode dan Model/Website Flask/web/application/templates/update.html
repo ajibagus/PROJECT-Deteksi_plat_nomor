@@ -1,0 +1,56 @@
+{% extends 'includes/base.html' %}
+{% block title %}{% endblock %}
+
+{% block content %}
+
+<!-- Form Registrasi -->
+    <div class="card-body" >
+      <h5 class="card-title"></h5>
+      <form action="/update/{{editkrywn.id_krywn}}" method="post">
+        <div class="card-title">{{ msg }}</div>
+        
+        <div class="col-12" width="100%">
+          <label for="yourNIPY" class="form-label">NIPY</label>
+            <input type="text" name="nipy" class="form-control" value={{editkrywn.nipy}} id="nipy"  required>
+        <div class="invalid-feedback">Please enter a valid NIPY!</div>
+        </div>
+    
+        <div class="col-12">
+          <label for="yourNAME" class="form-label">Nama</label>
+            <input type="text" name="nama" class="form-control" value={{editkrywn.nama}} id="nama"  required>
+              <div class="invalid-feedback">Please enter name!</div>
+        </div> 
+        
+        <div class="col-12">
+          <label for="yourUsername" class="form-label">Nomor Plat</label>
+            <div class="input-group has-validation">
+              <input type="text" name="plat_nomor" value={{editkrywn.plat_nomor}} class="form-control" id="nomorplt" required>
+                <div class="invalid-feedback">Please enter license plate.</div>
+            </div>
+        </div>
+    
+        <div class="col-12">
+          <label for="yourPassword" class="form-label">Status</label>
+            <input type="text" name="status" class="form-control"
+             id="status" value={{editkrywn.status}} required>
+             <select class="form-select" name="perdana" id="floatingSelectGrid" aria-label="Floating label select example">
+              <option selected>Pilih Status</option>
+              <option value="Dosen">Dosen</option>
+              <option value="Mahasiswa">Mahasiswa</option>
+              <option value="Karyawan">Karyawan</option>
+              <option value="Wadir">Wadir</option>
+            </select>
+              <div class="invalid-feedback">Please enter your status!</div>
+       
+            </div>
+        
+        <div class="col-12">
+          <button class="btn btn-primary w-100" type="submit">Simpan</button> 
+        </div>
+        
+            </form>
+      </div>
+    </div>
+  </form>
+
+{% endblock %}

@@ -1,0 +1,279 @@
+
+{% block title %}{% endblock %}
+
+{% block body %}
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Dashboard-Data Plat Nomor</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+<!-- Numplate logo -->
+<link href="static/img/logo.png" rel="icon">
+<link href="static/img/numplate-touch.png" rel="apple-touch-icon">
+
+<!-- Google Fonts -->
+<link href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+<!-- Vendor CSS Files -->
+<link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+<link href="static/vendor/quill/quill.snow.css" rel="stylesheet">
+<link href="static/vendor/quill/quill.bubble.css" rel="stylesheet">
+<link href="static/vendor/remixicon/remixicon.css" rel="stylesheet">
+<link href="static/vendor/simple-datatables/style.css" rel="stylesheet">
+
+<!-- Main CSS File -->
+<link href="static/css/style.css" rel="stylesheet">
+
+</head>
+
+<!-- Body Numplate Appearance  -->
+
+<body>
+
+<!-- ======= Header ======= -->
+ <header id="header" class="header fixed-top d-flex align-items-center">
+
+<!-- logo -->
+  <div class="d-flex align-items-center justify-content-between">
+    <a href="{{url_for('Home')}}" class="logo d-flex align-items-center">
+      <img src="static/img/logo.png" alt="">
+      <span class="d-none d-lg-block">Numplate</span>
+    </a>
+  </div>
+<!-- End Logo -->
+
+</header>
+
+<!-- ======= End Header ======= -->
+
+
+
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+
+  <ul class="sidebar-nav" id="sidebar-nav">
+   <center> <img src="static/img/ic_motor.png" alt="" width="80" height="100"> <br>
+   <h2 style="color: blanchedalmond;">NUMPLATE</h2></center>
+   
+<!-- Dashboard -->
+   <li class="nav-item">
+      <a class="nav-link collapsed" href="{{url_for('Home')}}">
+        <i class="bi bi-grid"></i>
+        <span href="{{url_for('Home')}}">Dashboard</span>
+      </a>
+    </li>
+<!-- End Dashboard Nav -->
+
+<!-- Data -->
+    <li class="nav-item">
+      <a class="nav-link collapsed "
+       href="{{url_for('data')}}">
+        <i class="bi bi-person"></i>
+        <span>Data</span>
+      </a>
+    </li>
+<!-- End Data -->
+
+
+<!-- Registrasi -->
+    <li class="nav-item">
+      <a class="nav-link " href="{{url_for('registrasiplatnomor')}}">
+        <i class="bi bi-person"></i>
+          <span>Registrasi Plat Nomor</span>
+      </a> 
+    </li> 
+<!-- End Registrasi -->
+
+<!-- laporan start -->
+<li class="nav-item">
+  <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+    <i class="bi bi-layout-text-window-reverse"></i><span>Laporan</span><i></i>
+  </a>
+  <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+    <li>
+      <a href="{{url_for('masuk')}}">
+        <i class="bi bi-circle"></i><span>Laporan Masuk</span>
+      </a>
+    </li>
+    <li>
+      <a href="{{url_for('keluar')}}">
+        <i class="bi bi-circle"></i><span>Laporan Keluar</span>
+      </a>
+    </li>
+
+    <li>
+      <a href="{{url_for('rekap')}}">
+        <i class="bi bi-circle"></i><span>Laporan Rekap</span>
+      </a>
+    </li>
+
+  </ul>
+</li>
+</li>
+<!-- laporan end -->
+
+<!-- scan plat nomor -->
+<li class="nav-item">
+<a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+  <i class="bi bi-layout-text-window-reverse"></i><span>Scan Plat Nomor</span><i></i>
+</a>
+<ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+  <li>
+    <a href="{{url_for('scanmasuk')}}">
+      <i class="bi bi-circle"></i><span>Scan Masuk</span>
+    </a>
+  </li>
+  <li>
+    <a href="{{url_for('scankeluar')}}">
+      <i class="bi bi-circle"></i><span>Scan Keluar</span>
+    </a>
+  </li>
+</ul>
+</li>
+<!-- scan plat nomor end -->
+
+
+<!-- logout -->
+   <center> <li class="nav-heading" style="color: honeydew;">NUMPLATE</li>
+   </center>
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{{url_for('login')}}">
+        <i class="bi bi-person"></i>
+        <span>Logout</span>
+      </a>
+    </li>
+  </ul>
+</aside>
+<!-- End logout -->
+
+<!-- ======= End Sidebar ======= -->
+
+  <main id="main" class="main">
+
+<!-- page tittle -->
+<div class="pagetitle">
+  <h1>Registrasi Plat Nomor</h1>
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{{url_for('Home')}}">Home</a></li>
+      <li class="breadcrumb-item">Registrasi Plat Nomor</li>
+    </ol>
+  </nav>
+</div>
+<!-- End Page Title -->
+
+<div class="card">
+  <div class="card-body" width="50%" hight="50%"> <br>
+    <center>  
+     <h3 >Registrasi Nomor Plat Kendaraan</h3> 
+    </center>
+
+
+<!-- Form Registrasi -->
+    <div class="card-body" >
+      <h5 class="card-title"></h5>
+        <form action="{{ url_for('registrasiplatnomor') }}" method="post">
+    <div class="card-title">{{ msg }}</div>
+    
+    <div class="col-12" width="100%">
+      <label for="yourNIPY" class="form-label">NIPY</label>
+        <input type="text" name="nipy" class="form-control" id="nipy" required>
+    <div class="invalid-feedback">Please enter a valid NIPY!</div>
+    </div>
+
+    <div class="col-12">
+      <label for="yourNAME" class="form-label">Nama</label>
+        <input type="text" name="nama" class="form-control" id="nama" required>
+          <div class="invalid-feedback">Please enter name!</div>
+    </div> 
+    
+    <div class="col-12">
+      <label for="yourUsername" class="form-label">Nomor Plat</label>
+        <div class="input-group has-validation">
+          <input type="text" name="plat_nomor" class="form-control" id="plat_nomor" required>
+            <div class="invalid-feedback">Please enter license plate.</div>
+        </div>
+    </div>
+
+    <div class="col-12">
+      <label for="yourPassword" class="form-label">Status</label>
+      <select class="form-select" name="perdana" id="floatingSelectGrid" aria-label="Floating label select example">
+        <option selected>Pilih Status</option>
+        <option value="Dosen">Dosen</option>
+        <option value="Mahasiswa">Mahasiswa</option>
+        <option value="Karyawan">Karyawan</option>
+        <option value="Wadir">Wadir</option>
+      </select>
+          <div class="invalid-feedback">Please enter your status!</div>
+    </div>
+    
+    <div class="col-12">
+      <button class="btn btn-primary w-100" type="submit">Simpan</button>
+    </div>
+    
+        </form>
+      </div>
+    </div>
+  </form>
+    <!-- End Form Registrasi -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main> <br><br><br> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  
+  <!-- ======= Footer ======= -->
+  <!-- <footer id="footer" class="footer" style="background-color: black;" style="color: blanchedalmond;">
+    <div class="copyright" style="color: blanchedalmond;"><span>Privacy Policy -</span> <span>Sarjana Terapan TI -</span><span>Support -</span>
+      &copy; Copyright <strong><span>2021</span></strong> MMAN PHB
+    </div>
+    <div class="credits">
+    </div> -->
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="static/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/vendor/chart.js/chart.min.js"></script>
+  <script src="static/vendor/echarts/echarts.min.js"></script>
+  <script src="static/vendor/quill/quill.min.js"></script>
+  <script src="static/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="static/vendor/tinymce/tinymce.min.js"></script>
+  <script src="static/vendor/php-email-form/validate.js"></script>
+
+  <!-- Main JS File -->
+  <script src="static/js/main.js"></script>
+
+</body>
+</html>
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="../static/vendor/apexcharts/apexcharts.min.js"></script>
+<script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../static/vendor/chart.js/chart.min.js"></script>
+<script src="../static/vendor/echarts/echarts.min.js"></script>
+<script src="../static/vendor/quill/quill.min.js"></script>
+<script src="../static/vendor/simple-datatables/simple-datatables.js"></script>
+<script src="../static/vendor/tinymce/tinymce.min.js"></script>
+<script src="../static/vendor/php-email-form/validate.js"></script>
+
+<!-- Main JS File -->
+<script src="../static/js/main.js"></script>
+
+</body>
+
+</html>
+
+{% endblock %}
